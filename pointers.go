@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+func zeroval(ival int) {
+	ival = 0
+}
+func zeroptr(iptr *int) {
+	*iptr = 0
+}
+func main() {
+	i := 1
+	fmt.Println("initial: ", i)
+
+	zeroval(i)
+	fmt.Println("zeroval: ", i)
+
+	zeroptr(&i)
+	fmt.Println("zeroptr: ", i)
+
+	//	zeroval 在 main 函数中不能改变 i 的值， 但是 zeroptr 可以，因为它有这个变量的内存地址的引用。
+	fmt.Println("pointer: ", &i)
+}
